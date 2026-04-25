@@ -57,7 +57,7 @@ plugins:
       lang:
         - zh
         - en
-      separator: '[\s\u3000\u3002\uff0c\uff1b\uff1f\uff01\uff1a]+'
+      separator: '[\s\u3000\u3002，；？！：]+'
   - glightbox
 
 # Extensions
@@ -84,33 +84,39 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - 首页: index.md
+  - 首页：index.md
   - 生活:
     - life/index.md
-    - 烹饪美食: life/cooking.md
-    - 旅行记录: life/travel.md
-    - 健康运动: life/health.md
-    - 理财投资: life/finance.md
+    - 烹饪美食：life/cooking.md
+    - 旅行记录：life/travel.md
+    - 健康运动：life/health.md
+    - 理财投资：life/finance.md
   - 工作:
     - work/index.md
     - GameRuntime 引擎:
       - work/gameruntime/index.md
-      - 引擎架构: work/gameruntime/architecture.md
-      - Python 技巧: work/gameruntime/python-tips.md
+      - 引擎架构：work/gameruntime/architecture.md
+      - Python 技巧：work/gameruntime/python-tips.md
     - LLM / AI:
       - work/llm/index.md
-      - 提示工程: work/llm/prompt-engineering.md
-      - RAG 技术: work/llm/rag.md
-      - 微调经验: work/llm/fine-tuning.md
-    - 腾讯云: work/tencent-cloud.md
-    - 开发工具链: work/dev-tools.md
-    - 会议笔记: work/meeting-notes.md
+      - 提示工程：work/llm/prompt-engineering.md
+      - RAG 技术：work/llm/rag.md
+      - 微调经验：work/llm/fine-tuning.md
+      - 模型对比：work/llm/models/
+      - 工具框架：work/llm/tools/
+      - Prompt 模板：work/llm/prompts/
+      - 教程指南：work/llm/tutorials/
+      - 学习资源：work/llm/resources/
+      - 论文整理：work/llm/papers/
+    - 腾讯云：work/tencent-cloud.md
+    - 开发工具链：work/dev-tools.md
+    - 会议笔记：work/meeting-notes.md
   - 项目:
     - projects/index.md
-    - 开源项目: projects/open-source.md
-    - 技术方案: projects/tech-solutions.md
-    - 学习笔记: projects/learning-notes.md
-    - 读书笔记: projects/reading-notes.md
+    - 开源项目：projects/open-source.md
+    - 技术方案：projects/tech-solutions.md
+    - 学习笔记：projects/learning-notes.md
+    - 读书笔记：projects/reading-notes.md
 
 # Extra
 extra:
