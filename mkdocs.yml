@@ -1,0 +1,124 @@
+# Site information
+site_name: MindVault
+site_url: https://pppxxx1983.github.io/MindVault/
+site_description: 个人知识库 - 生活 / 工作 / 项目
+site_author: pppxxx1983
+
+# Language (configured via theme)
+
+
+# Repository
+repo_name: pppxxx1983/MindVault
+repo_url: https://github.com/pppxxx1983/MindVault
+edit_uri: edit/main/docs/
+
+# Theme
+theme:
+  name: material
+  logo: material/brain
+  favicon: material/brain
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+    - toc.integrate
+  language: zh
+  icon:
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+      separator: '[\s\u3000\u3002\uff0c\uff1b\uff1f\uff01\uff1a]+'
+  - glightbox
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - admonition
+  - toc:
+      permalink: true
+
+# Navigation
+nav:
+  - 首页: index.md
+  - 生活:
+    - life/index.md
+    - 烹饪美食: life/cooking.md
+    - 旅行记录: life/travel.md
+    - 健康运动: life/health.md
+    - 理财投资: life/finance.md
+  - 工作:
+    - work/index.md
+    - GameRuntime 引擎:
+      - work/gameruntime/index.md
+      - 引擎架构: work/gameruntime/architecture.md
+      - Python 技巧: work/gameruntime/python-tips.md
+    - LLM / AI:
+      - work/llm/index.md
+      - 提示工程: work/llm/prompt-engineering.md
+      - RAG 技术: work/llm/rag.md
+      - 微调经验: work/llm/fine-tuning.md
+    - 腾讯云: work/tencent-cloud.md
+    - 开发工具链: work/dev-tools.md
+    - 会议笔记: work/meeting-notes.md
+  - 项目:
+    - projects/index.md
+    - 开源项目: projects/open-source.md
+    - 技术方案: projects/tech-solutions.md
+    - 学习笔记: projects/learning-notes.md
+    - 读书笔记: projects/reading-notes.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pppxxx1983
+      name: GitHub
+
+# Customization (optional)
+extra_css:
+  - stylesheets/extra.css
