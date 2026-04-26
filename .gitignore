@@ -31,3 +31,8 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Personal/Sensitive data (DO NOT COMMIT)
+life/
+raw/
+journal/
