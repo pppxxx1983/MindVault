@@ -1,0 +1,378 @@
+{
+  "version": "1.0.0",
+  "last_compiled": "2026-04-26T09:25:27.089649",
+  "concepts": [
+    {
+      "id": "相关概念",
+      "name": "相关概念",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "实现项目",
+      "name": "实现项目",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "自动提取",
+      "name": "自动提取",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "关键特性",
+      "name": "关键特性",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "wiki_",
+      "name": "wiki/",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "来源追溯",
+      "name": "来源追溯",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "LLM_Wiki",
+      "name": "LLM Wiki",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "LLM_自动维护知识库",
+      "name": "LLM 自动维护知识库",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "核心思想",
+      "name": "核心思想",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "LLM_Wiki_理念",
+      "name": "LLM Wiki 理念",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "schema_",
+      "name": "schema/",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "自动链接",
+      "name": "自动链接",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "raw_",
+      "name": "raw/",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "知识复利",
+      "name": "知识复利",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    },
+    {
+      "id": "三层结构",
+      "name": "三层结构",
+      "category": "concept",
+      "sources": [
+        "raw/2026-04-26_LLM_Wiki_理念.md"
+      ],
+      "relations": [
+        {
+          "type": "related",
+          "target": "第二大脑"
+        },
+        {
+          "type": "related",
+          "target": "知识图谱"
+        },
+        {
+          "type": "related",
+          "target": "RAG"
+        }
+      ],
+      "updated_at": "2026-04-26"
+    }
+  ],
+  "sources": [
+    {
+      "file": "raw/2026-04-26_LLM_Wiki_理念.md",
+      "concepts": [
+        "相关概念",
+        "实现项目",
+        "自动提取",
+        "关键特性",
+        "wiki/",
+        "来源追溯",
+        "LLM Wiki",
+        "LLM 自动维护知识库",
+        "核心思想",
+        "LLM Wiki 理念",
+        "schema/",
+        "自动链接",
+        "raw/",
+        "知识复利",
+        "三层结构"
+      ],
+      "tags": [
+        "[LLM",
+        " 知识库，Karpathy]"
+      ],
+      "created": "2026-04-26"
+    }
+  ]
+}

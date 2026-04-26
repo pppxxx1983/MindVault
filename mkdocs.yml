@@ -85,6 +85,18 @@ markdown_extensions:
 # Navigation
 nav:
   - 首页：index.md
+  - LLM Wiki:
+    - wiki/index.md
+    - 概念知识库:
+      - wiki/concepts/LLM_Wiki.md
+      - wiki/concepts/LLM_Wiki_理念.md
+      - wiki/concepts/三层结构.md
+      - wiki/concepts/核心思想.md
+      - wiki/concepts/关键特性.md
+      - wiki/concepts/自动提取.md
+      - wiki/concepts/自动链接.md
+      - wiki/concepts/来源追溯.md
+      - wiki/concepts/知识复利.md
   - 生活:
     - life/index.md
     - 烹饪美食：life/cooking.md
