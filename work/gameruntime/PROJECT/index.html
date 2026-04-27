@@ -1,0 +1,2791 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库 - 生活 / 工作 / 项目">
+      
+      
+        <meta name="author" content="pppxxx1983">
+      
+      
+        <link rel="canonical" href="https://pppxxx1983.github.io/MindVault/work/gameruntime/PROJECT/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../material/brain">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GameRuntime 项目文档 - MindVault</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gameruntime" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="MindVault" class="md-header__button md-logo" aria-label="MindVault" data-md-component="logo">
+      
+  <img src="../../../material/brain" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MindVault
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GameRuntime 项目文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber" aria-label="切换到深色模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber" aria-label="切换到浅色模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pppxxx1983/MindVault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    pppxxx1983/MindVault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../首页：index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  None
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../wiki/index.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LLM Wiki
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  生活
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  工作
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MindVault" class="md-nav__button md-logo" aria-label="MindVault" data-md-component="logo">
+      
+  <img src="../../../material/brain" alt="logo">
+
+    </a>
+    MindVault
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pppxxx1983/MindVault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    pppxxx1983/MindVault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../首页：index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Wiki
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLM Wiki
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念知识库
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概念知识库
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/LLM_Wiki.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/LLM_Wiki_理念.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/三层结构.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/核心思想.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/关键特性.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/自动提取.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/自动链接.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/来源追溯.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/知识复利.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生活
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    生活
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../烹饪美食：life/cooking.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../旅行记录：life/travel.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../健康运动：life/health.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../理财投资：life/finance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工作
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GameRuntime 引擎
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GameRuntime 引擎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../引擎架构：work/gameruntime/architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python 技巧：work/gameruntime/python-tips.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../llm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM / AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLM / AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../提示工程：work/llm/prompt-engineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RAG 技术：work/llm/rag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../微调经验：work/llm/fine-tuning.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../模型对比：work/llm/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具框架：work/llm/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prompt 模板：work/llm/prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../教程指南：work/llm/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../学习资源：work/llm/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../论文整理：work/llm/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../腾讯云：work/tencent-cloud.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../开发工具链：work/dev-tools.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../会议笔记：work/meeting-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../开源项目：projects/open-source.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../技术方案：projects/tech-solutions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../学习笔记：projects/learning-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../读书笔记：projects/reading-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="gameruntime">GameRuntime 项目文档<a class="headerlink" href="#gameruntime" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>版本</strong>: v0.6.0<br>
+<strong>最后更新</strong>: 2026-04-27<br>
+<strong>GitHub</strong>: https://github.com/pppxxx1983/GameRuntime<br>
+<strong>许可证</strong>: MIT</p>
+</blockquote>
+<hr>
+<h2 id="_1">📋 一、项目概览<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>GameRuntime 是一个<strong>基于 GameState 的游戏运行时与自动化引擎</strong>，将游戏自动化拆分为四层核心管线：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>感知 (Perception) → 状态 (StateFusion) → 事件 (EventEngine) → 决策与执行 (AgentOrchestrator)
+</code></pre></div>
+<h3 id="_2">核心特性<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>多模态感知</strong></td>
+<td>OCR / YOLO / VLM / Simulator 产生 Observation</td>
+</tr>
+<tr>
+<td><strong>状态融合</strong></td>
+<td>StateFusion 把多源观测融合成统一 GameState</td>
+</tr>
+<tr>
+<td><strong>事件驱动</strong></td>
+<td>EventEngine 从状态变化生成 Event</td>
+</tr>
+<tr>
+<td><strong>技能系统</strong></td>
+<td>AgentOrchestrator 选择技能并执行</td>
+</tr>
+<tr>
+<td><strong>三种模式</strong></td>
+<td>observe（只观察）/ assist（建议+ 确认）/ auto（自动执行）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">当前完成度<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心状态与事件链路</td>
+<td>✅ 已完成</td>
+<td>GameState / StateFusion / EventEngine</td>
+</tr>
+<tr>
+<td>技能与调度</td>
+<td>✅ 已完成</td>
+<td>AgentOrchestrator + 技能注册表</td>
+</tr>
+<tr>
+<td>Mock / Simulator 闭环</td>
+<td>✅ 已完成</td>
+<td>可无设备运行</td>
+</tr>
+<tr>
+<td>FastAPI / WebSocket 服务</td>
+<td>✅ 已完成</td>
+<td>REST + Editor / Phone WS</td>
+</tr>
+<tr>
+<td>Editor 监控台</td>
+<td>✅ 已完成</td>
+<td>NiceGUI 仪表盘</td>
+</tr>
+<tr>
+<td>KnowledgeGap 闭环</td>
+<td>✅ 已完成</td>
+<td>resolve / research / validate</td>
+</tr>
+<tr>
+<td>测试基线</td>
+<td>✅ 已完成</td>
+<td>119 个测试通过</td>
+</tr>
+<tr>
+<td>代码质量基线</td>
+<td>✅ 已完成</td>
+<td>关键改动 ruff 通过</td>
+</tr>
+<tr>
+<td>真实设备感知</td>
+<td>🚧 部分完成</td>
+<td>需要模型文件 / API Key / Android 端配合</td>
+</tr>
+<tr>
+<td>Android 客户端产品化</td>
+<td>🚧 部分完成</td>
+<td>基础链路存在，仍需 UI 和发布完善</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_4">🏗️ 二、系统架构<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h3 id="21">2.1 整体架构图<a class="headerlink" href="#21" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────┐     ScreenSync      ┌──────────────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  Android APK │ ◄════════════════► │                      │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│  (Kotlin)    │    WebSocket        │   GameRuntime Engine  │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└─────────────┘                     │   (FastAPI + Python)  │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                     │                      │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>┌─────────────┐    WebSocket        │  ┌──────────────────┐ │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│    Editor    │ ◄════════════════► │  │   GameState       │ │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  (NiceGUI)   │    实时状态/控制     │  │   (核心状态对象)   │ │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>└─────────────┘                     │  └─────────────────┘ │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                                     │           │           │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                     │  ┌────────▼─────────┐ │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                     │  │  PerceptionLayer  │ │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                                     │  │  OCR/YOLO/VLM/Sim │ │
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                                     │  └────────┬─────────┘ │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                                     │           │           │
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                                     │  ┌────────▼─────────┐ │
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                                     │  │   StateFusion     │ │
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                                     │  │  (多源加权融合)    │ │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                                     │  └────────┬─────────┘ │
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                                     │           │           │
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                                     │  ┌────────▼─────────┐ │
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                                     │  │   EventEngine     │ │
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>                                     │  │  (状态变化→事件)  │ │
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>                                     │  └────────┬─────────┘ │
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>                                     │           │           │
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>                                     │  ┌────────▼─────────┐ │
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>                                     │  │ AgentOrchestrator │ │
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>                                     │  │  (事件→技能映射)  │ │
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>                                     │  └────────┬─────────┘ │
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>                                     │           │           │
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>                                     │  ┌────────▼─────────┐ │
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>                                     │  │  Skill + Adapter  │ │
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>                                     │  │  (技能执行层)     │ │
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>                                     │  └──────────────────┘ │
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>                                     └──────────────────────┘
+</code></pre></div>
+<h3 id="22">2.2 三种运行模式<a class="headerlink" href="#22" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>observe</strong></td>
+<td>只观察，不执行任何操作</td>
+<td>调试、监控</td>
+</tr>
+<tr>
+<td><strong>assist</strong></td>
+<td>建议操作，等待用户确认后执行（默认）</td>
+<td>人机协作</td>
+</tr>
+<tr>
+<td><strong>auto</strong></td>
+<td>白名单技能自动执行，高风险需确认</td>
+<td>全自动运行</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_5">📁 三、项目结构<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GameRuntime/
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── engine/                     # Python 引擎核心
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   ├── main.py                 # 统一入口 (--mock/--mode/--config/--profile)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── api/
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   │   └── server.py           # FastAPI + WebSocket 服务器
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   ├── core/
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   │   ├── schemas/            # Pydantic 数据模型
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   │   │   ├── game_state.py   # GameState 核心状态
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   │   │   ├── event.py        # Event 事件对象
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│   │   │   ├── observation.py  # Observation 感知输出
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   │   │   └── knowledge_gap.py # KnowledgeGap 知识缺口
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│   │   ├── state_fusion.py     # 多源状态融合
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│   │   └── event_engine.py     # 事件触发引擎
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│   ├── perception/
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│   │   ├── manager.py          # 感知管理器 (统一调度 OCR/YOLO/VLM/Sim)
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│   │   ├── fusion.py           # 加权融合引擎
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│   │   ├── simulator.py        # Mock 感知模拟器 (状态机驱动)
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│   │   ├── paddleocr_adapter.py # PaddleOCR 适配器
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│   │   └── yolo_adapter.py     # YOLOv8 适配器
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│   ├── agent/
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│   │   ├── orchestrator.py     # Agent 调度中枢
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│   │   ├── skills/             # 技能系统
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│   │   │   ├── base_skill.py   # Skill 基类 + SkillResult
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│   │   │   ├── registry.py     # 技能注册表
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│   │   │   └── game_skills.py  # 通用技能实现
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>│   │   ├── execution/
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>│   │   │   └── execution_adapter.py # 执行适配器 (ADB/Hub)
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>│   │   ├── vlm_client.py       # GLM-4V VLM
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>│   │   ├── qwen_vlm_client.py  # Qwen-VL
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>│   │   ├── kimi_vlm_client.py  # Kimi VL
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>│   │   └── deepseek_vlm_client.py # DeepSeek VL2
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>│   ├── knowledge/
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>│   │   └── gap_manager.py      # 知识缺口管理器
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>│   ├── storage/
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>│   │   └── datastore.py        # SQLite 数据存储 (WAL 模式)
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>│   ├── observability/
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>│   │   └── metrics.py          # 指标收集器
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>│   ├── profiles/
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>│   │   └── loader.py           # 游戏 Profile 加载器
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>│   ├── runtime/
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>│   │   └── config_loader.py    # 统一配置加载 (${VAR} 插值)
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>│   ├── utils/
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>│   │   ├── log_manager.py      # 线程安全日志管理器
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>│   │   └── logging.py          # JSON 格式日志
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>│   └── adapters/               # 适配器层 (预留)
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>│
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>├── editor/                     # NiceGUI 监控台
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>│   ├── app.py                  # 主入口
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>│   ├── ws_client.py            # WebSocket 客户端 (异步)
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>│   ├── pages/
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>│   │   ├── dashboard.py        # 仪表盘主页面
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>│   │   └── frame_analyzer.py   # 帧分析调试页面
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>│   └── components/
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>│       └── ui_base.py          # StatusBadge / MetricCard 组件
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>│
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>├── android/                    # Android 客户端 (Kotlin)
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>│   ├── screensync/             # ScreenSync 连接管理
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>│   ├── capture/                # MediaProjection 屏幕捕获
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>│   ├── control/                # RemoteGestureService 远程手势
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>│   ├── diff/                   # 帧差检测
+<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>│   ├── encode/                 # WebP 区域编码
+<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>│   ├── pipeline/               # ScreenSync 管道
+<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>│   ├── protocol/               # 协议消息定义
+<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>│   └── ui/                     # Activity / Fragment
+<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>│
+<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>├── vendor/screensync/          # ScreenSync 协议 Python 实现
+<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a>│   ├── messages.py             # 协议消息类型
+<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>│   ├── phone_client.py         # 设备端 WS 客户端
+<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>│   ├── registry.py             # 远程客户端注册表
+<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>│   └── reconnect.py            # 指数退避重连策略
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>│
+<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>├── profiles/game/
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>│   ├── profile.yaml            # 游戏配置模板
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>│   └── mock_scenario.yaml      # Mock 场景模板
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>│
+<a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a>├── config.yaml                 # 主配置文件
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>├── scripts/
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>│   ├── run.py                  # 服务管理器 (Windows)
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>│   ├── download_model.py       # YOLO 模型下载
+<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a>│   └── help.py                 # 控制台帮助
+<a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a>├── tests/
+<a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a>│   ├── test_game_runtime.py    # 核心模块测试
+<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a>│   ├── test_architecture.py    # 架构契约测试
+<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a>│   └── test_mock_mode.py       # Mock 模式集成测试
+<a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a>└── data/
+<a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a>    ├── game.db                 # SQLite 数据库
+<a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a>    ├── frames/                 # 帧缓存
+<a id="__codelineno-2-88" name="__codelineno-2-88" href="#__codelineno-2-88"></a>    └── logs/                   # 运行日志
+</code></pre></div>
+<hr>
+<h2 id="_6">🔄 四、核心数据流<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h3 id="41">4.1 主处理循环<a class="headerlink" href="#41" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>帧注入 (Mock/手机)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>_frame_queue (asyncio.Queue, maxsize=10)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ▼
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>_perception_worker() ──► PerceptionManager.perceive(frame)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    │                        │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    │                   ┌────┴────┐
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    │                   │ Sim?    │ 真实感知
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    │                   │simulator│ OCR + YOLO + VLM
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    │                   └────┬────┘
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    │                        │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    │                   list[Observation]
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    │                        │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    ▼                        ▼
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>_process_frame() ────► StateFusion.fuse_observations()
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                         │
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                         ▼
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>                    GameState (updated)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>                         │
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>                    ┌────┴────┐
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>                    │         │
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>               EventEngine  _broadcast_to_editors()
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>                    │
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>                    ▼
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>               list[Event]
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>                    │
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>                    ▼
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>          AgentOrchestrator.on_event()
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>                    │
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>                    ▼
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>              ActionPlan (intent + skill)
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>                    │
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>               ┌────┴────┐
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>               │ assist? │ auto?
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>               │ 等确认  │ 直接执行
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>               └────┬────┘
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>                    │
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>                    ▼
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>             Skill.execute(state, args)
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>                    │
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>                    ▼
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>              ExecutionAdapter (ADB/Hub)
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>                    │
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>                    ▼
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>              SkillResult → GapManager (失败时)
+</code></pre></div>
+<h3 id="42">4.2 数据模型关系<a class="headerlink" href="#42" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>作用</th>
+<th>关键字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Observation</strong></td>
+<td>感知输出</td>
+<td>obs_type (OCR/YOLO/VLM), confidence, source, bbox, text</td>
+</tr>
+<tr>
+<td><strong>GameState</strong></td>
+<td>唯一状态源</td>
+<td>player, ui, world, inventory, system_confidence, extra</td>
+</tr>
+<tr>
+<td><strong>Event</strong></td>
+<td>状态变化触发</td>
+<td>event_type, priority, reason, dedupe_key</td>
+</tr>
+<tr>
+<td><strong>ActionPlan</strong></td>
+<td>技能执行计划</td>
+<td>skill_name, confidence, requires_confirmation, args</td>
+</tr>
+<tr>
+<td><strong>KnowledgeGap</strong></td>
+<td>知识缺口</td>
+<td>gap_type, status, question, answer, validated_at</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_7">🎯 五、核心模块详解<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<h3 id="51-gamestate-enginecoreschemasgame_statepy">5.1 GameState (<code>engine/core/schemas/game_state.py</code>)<a class="headerlink" href="#51-gamestate-enginecoreschemasgame_statepy" title="Permanent link">¶</a></h3>
+<p>系统唯一的状态核心，Pydantic BaseModel。</p>
+<table>
+<thead>
+<tr>
+<th>子模型</th>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PlayerState</strong></td>
+<td>level, health, energy, currency, stuck</td>
+<td>玩家状态</td>
+</tr>
+<tr>
+<td><strong>UIState</strong></td>
+<td>main_screen_type, modal_dialog_present, loading</td>
+<td>UI 状态</td>
+</tr>
+<tr>
+<td><strong>WorldState</strong></td>
+<td>in_combat, current_location, combat_result</td>
+<td>世界状态</td>
+</tr>
+<tr>
+<td><strong>InventoryState</strong></td>
+<td>capacity, is_full, key_items</td>
+<td>背包状态</td>
+</tr>
+<tr>
+<td><strong>SystemConfidence</strong></td>
+<td>overall, fields, conflicting_sources</td>
+<td>置信度</td>
+</tr>
+<tr>
+<td><strong>extra</strong></td>
+<td>dict</td>
+<td>游戏特定数据</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-perceptionmanager-engineperceptionmanagerpy">5.2 PerceptionManager (<code>engine/perception/manager.py</code>)<a class="headerlink" href="#52-perceptionmanager-engineperceptionmanagerpy" title="Permanent link">¶</a></h3>
+<p>统一调度感知层，支持两种模式：</p>
+<ul>
+<li><strong>Mock 模式</strong>：使用 Simulator 生成模拟观测（状态机驱动，支持场景转换）</li>
+<li><strong>真实感知</strong>：PaddleOCR (文字) + YOLOv8 (检测) + VLM (视觉理解)</li>
+</ul>
+<p>配置驱动：<code>config.yaml → perception.use_simulator</code></p>
+<h3 id="53-statefusion-enginecorestate_fusionpy">5.3 StateFusion (<code>engine/core/state_fusion.py</code>)<a class="headerlink" href="#53-statefusion-enginecorestate_fusionpy" title="Permanent link">¶</a></h3>
+<p>将多个 Observation 融合为一个 GameState：</p>
+<ul>
+<li>多源加权融合（权重从 config.yaml 读取）</li>
+<li>冲突检测（差异超过阈值时记录）</li>
+<li>屏幕类型优先级（COMBAT &gt; LOADING &gt; DIALOG &gt; SHOP &gt; ...）</li>
+<li>Observation 历史记录（审计性）</li>
+</ul>
+<h3 id="54-eventengine-enginecoreevent_enginepy">5.4 EventEngine (<code>engine/core/event_engine.py</code>)<a class="headerlink" href="#54-eventengine-enginecoreevent_enginepy" title="Permanent link">¶</a></h3>
+<p>从 GameState 变化产生 Event：</p>
+<ul>
+<li>10 条默认规则（能量低、战斗开始/结束、弹窗、界面变化等）</li>
+<li>去重冷却（按事件类型区分冷却时间）</li>
+<li>事件处理器注册</li>
+</ul>
+<h3 id="55-agentorchestrator-engineagentorchestratorpy">5.5 AgentOrchestrator (<code>engine/agent/orchestrator.py</code>)<a class="headerlink" href="#55-agentorchestrator-engineagentorchestratorpy" title="Permanent link">¶</a></h3>
+<p>事件到技能的映射中枢：</p>
+<ul>
+<li>事件 → ActionPlan（意图 + 技能名 + 参数）</li>
+<li>Profile 白名单控制 Auto 模式自动执行的技能</li>
+<li>感知质量检查（置信度低时降级或创建 Gap）</li>
+<li>Gap 回调：执行失败时自动创建 KnowledgeGap</li>
+</ul>
+<h3 id="56-skill-engineagentskills">5.6 Skill 系统 (<code>engine/agent/skills/</code>)<a class="headerlink" href="#56-skill-engineagentskills" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>技能</th>
+<th>风险等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ui.close_modal</code></td>
+<td>safe</td>
+<td>关闭弹窗</td>
+</tr>
+<tr>
+<td><code>ui.press_back</code></td>
+<td>safe</td>
+<td>返回</td>
+</tr>
+<tr>
+<td><code>combat.collect_reward</code></td>
+<td>medium</td>
+<td>领取奖励</td>
+</tr>
+<tr>
+<td><code>combat.retry</code></td>
+<td>medium</td>
+<td>重试战斗</td>
+</tr>
+<tr>
+<td><code>player.use_sanity_potion</code></td>
+<td>high</td>
+<td>使用体力药</td>
+</tr>
+<tr>
+<td><code>quest.complete</code></td>
+<td>medium</td>
+<td>完成任务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="57-gapmanager-engineknowledgegap_managerpy">5.7 GapManager (<code>engine/knowledge/gap_manager.py</code>)<a class="headerlink" href="#57-gapmanager-engineknowledgegap_managerpy" title="Permanent link">¶</a></h3>
+<p>知识缺口管理：</p>
+<ul>
+<li>创建/更新/查询 Gap</li>
+<li>持久化到 SQLite</li>
+<li>回调通知（新 Gap 创建时广播给 Editor）</li>
+</ul>
+<hr>
+<h2 id="_8">📡 六、通信协议<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h3 id="61-screensync-android-engine">6.1 ScreenSync (Android ↔ Engine)<a class="headerlink" href="#61-screensync-android-engine" title="Permanent link">¶</a></h3>
+<p>基于 WebSocket 的二进制协议，从 GameTools C# 移植。</p>
+<p><strong>消息类型</strong>:
+- Phone → Server: hello, frame_delta, heartbeat, command, error
+- Server → Editor: phone_connected, frame_delta, command_result
+- Editor → Server: editor_pointer, editor_command, heartbeat</p>
+<p><strong>握手流程</strong>: <code>hello → hello_ack → frame_ack → phone_connected</code></p>
+<h3 id="62-engine-editor-websocket">6.2 Engine ↔ Editor WebSocket<a class="headerlink" href="#62-engine-editor-websocket" title="Permanent link">¶</a></h3>
+<p>JSON 消息，Engine 在 <code>/ws/editor</code> 端点：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Engine → Editor</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state_updated"</span><span class="p">,</span><span class="w"> </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event_triggered"</span><span class="p">,</span><span class="w"> </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action_plan"</span><span class="p">,</span><span class="w"> </span><span class="nt">"plan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skill_result"</span><span class="p">,</span><span class="w"> </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gap_created"</span><span class="p">,</span><span class="w"> </span><span class="nt">"gap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perception_status"</span><span class="p">,</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">// Editor → Engine</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm_action"</span><span class="p">,</span><span class="w"> </span><span class="nt">"plan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reject_action"</span><span class="p">,</span><span class="w"> </span><span class="nt">"plan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manual_correction"</span><span class="p">,</span><span class="w"> </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"set_run_mode"</span><span class="p">,</span><span class="w"> </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assist"</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="63-rest-api">6.3 REST API<a class="headerlink" href="#63-rest-api" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>端点</th>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/health</code></td>
+<td>GET</td>
+<td>健康检查</td>
+</tr>
+<tr>
+<td><code>/state</code></td>
+<td>GET</td>
+<td>当前 GameState</td>
+</tr>
+<tr>
+<td><code>/events</code></td>
+<td>GET</td>
+<td>最近事件</td>
+</tr>
+<tr>
+<td><code>/skills</code></td>
+<td>GET</td>
+<td>已注册技能</td>
+</tr>
+<tr>
+<td><code>/gaps</code></td>
+<td>GET</td>
+<td>知识缺口</td>
+</tr>
+<tr>
+<td><code>/frames</code></td>
+<td>GET</td>
+<td>最近帧信息</td>
+</tr>
+<tr>
+<td><code>/mode</code></td>
+<td>POST</td>
+<td>切换运行模式</td>
+</tr>
+</tbody>
+</table>
+<p><strong>认证</strong>: <code>X-API-Key</code> Header（未配置时免认证）</p>
+<hr>
+<h2 id="_9">⚙️ 七、配置系统<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<h3 id="71">7.1 配置优先级<a class="headerlink" href="#71" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>CLI 参数 &gt; 环境变量 &gt; config.yaml &gt; 内置默认值
+</code></pre></div>
+<h3 id="72">7.2 环境变量插值<a class="headerlink" href="#72" title="Permanent link">¶</a></h3>
+<p>config.yaml 支持 <code>${VAR}</code> 和 <code>${VAR:-default}</code> 语法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">perception</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">use_simulator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${USE_SIMULATOR:-false}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">llm</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${LLM_API_KEY:-}</span>
+</code></pre></div>
+<h3 id="73-profile">7.3 Profile 系统<a class="headerlink" href="#73-profile" title="Permanent link">¶</a></h3>
+<p><code>profiles/game/profile.yaml</code> 定义游戏特定配置：</p>
+<ul>
+<li><code>known_regions</code>: UI 区域坐标（按钮位置等）</li>
+<li><code>skill_whitelist_auto</code>: Auto 模式自动执行的技能</li>
+<li><code>event_rules</code>: 自定义事件规则</li>
+<li><code>capture_adapter</code> / <code>execution_adapter</code>: 适配器选择</li>
+</ul>
+<h3 id="74">7.4 核心配置项<a class="headerlink" href="#74" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 运行时配置</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">runtime</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">default_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assist</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">profile_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profiles/game/profile.yaml</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">mock_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">execution_countdown_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># 感知层配置</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nt">perception</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="nt">use_simulator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="nt">frame_diff_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="nt">ocr</span><span class="p">:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">paddleocr</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ch</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="nt">detection</span><span class="p">:</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yolov8</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="nt">model_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">models/game_yolo.pt</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="nt">vlm</span><span class="p">:</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ollama</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen3-vl:8b</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="c1"># LLM 配置</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="nt">llm</span><span class="p">:</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ollama</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">  </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ollama</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">  </span><span class="nt">base_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:11434/v1</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen3-vl:8b</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="c1"># 安全配置</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="nt">safety</span><span class="p">:</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">  </span><span class="nt">block_high_risk_auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">  </span><span class="nt">confirm_medium_risk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">  </span><span class="nt">auto_skill_whitelist</span><span class="p">:</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ui.close_modal</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ui.press_back</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">combat.collect_reward</span>
+</code></pre></div>
+<hr>
+<h2 id="_10">🚀 八、快速开始<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
+<h3 id="81">8.1 安装<a class="headerlink" href="#81" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 基础安装</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 开发依赖</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev]"</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Editor 依赖</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[editor]"</span>
+</code></pre></div>
+<h3 id="82-mock">8.2 启动 Mock 模式（推荐）<a class="headerlink" href="#82-mock" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 方式 1: 直接启动</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--mock
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># 方式 2: 使用管理脚本</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>python<span class="w"> </span>manage.py<span class="w"> </span>restart-engine<span class="w"> </span>--mock
+</code></pre></div>
+<p>默认地址：
+- API: <code>http://localhost:8000</code>
+- Health: <code>http://localhost:8000/health</code></p>
+<h3 id="83-editor">8.3 启动 Editor<a class="headerlink" href="#83-editor" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python<span class="w"> </span>editor/app.py
+</code></pre></div>
+<p>默认地址：
+- Editor: <code>http://localhost:8501</code></p>
+<h3 id="84">8.4 运行测试<a class="headerlink" href="#84" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+</code></pre></div>
+<h3 id="85">8.5 常用命令<a class="headerlink" href="#85" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Mock 闭环</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--mock
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># 指定运行模式</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--mode<span class="w"> </span>assist
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--mode<span class="w"> </span>auto
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># 指定配置</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--config<span class="w"> </span>configs/dev.yaml
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--config<span class="w"> </span>configs/mock.yaml
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># 指定 profile</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>python<span class="w"> </span>-m<span class="w"> </span>engine.main<span class="w"> </span>--profile<span class="w"> </span>profiles/game/profile.yaml
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># 运行测试</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+</code></pre></div>
+<hr>
+<h2 id="_11">🧪 九、测试<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>测试文件</th>
+<th>覆盖范围</th>
+<th>测试数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_game_runtime.py</code></td>
+<td>StateFusion, EventEngine, Orchestrator, Perception</td>
+<td>~30</td>
+</tr>
+<tr>
+<td><code>test_architecture.py</code></td>
+<td>事件 - 技能契约，配置加载，API 安全策略</td>
+<td>~8</td>
+</tr>
+<tr>
+<td><code>test_mock_mode.py</code></td>
+<td>Mock 感知，全链路集成</td>
+<td>~15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总计</strong>: 119 个测试通过</p>
+<p><strong>运行测试</strong>:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 全部测试</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>pytest<span class="w"> </span>tests/<span class="w"> </span>-v
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Mock 模式专项测试</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>pytest<span class="w"> </span>tests/test_mock_mode.py<span class="w"> </span>-v
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 特定测试类</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>pytest<span class="w"> </span>tests/test_game_runtime.py::TestStateFusion<span class="w"> </span>-v
+</code></pre></div><p></p>
+<hr>
+<h2 id="_12">十、部署<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<h3 id="101-docker">10.1 Docker<a class="headerlink" href="#101-docker" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 生产环境</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>engine<span class="w"> </span>editor
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># 开发环境（挂载源码）</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>docker-compose<span class="w"> </span>--profile<span class="w"> </span>dev<span class="w"> </span>up<span class="w"> </span>dev
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># 含 Redis 缓存</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>docker-compose<span class="w"> </span>--profile<span class="w"> </span>cache<span class="w"> </span>up
+</code></pre></div>
+<h3 id="102">10.2 数据持久化<a class="headerlink" href="#102" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/game.db</code></td>
+<td>SQLite 数据库</td>
+</tr>
+<tr>
+<td><code>data/frames/</code></td>
+<td>帧缓存</td>
+</tr>
+<tr>
+<td><code>logs/</code></td>
+<td>运行日志</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_13">📊 十一、工程路线图<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
+<h3 id="m1-stable-runtime-base">M1: Stable Runtime Base（基本完成）<a class="headerlink" href="#m1-stable-runtime-base" title="Permanent link">¶</a></h3>
+<ul>
+<li>✅ 保持启动流程一致</li>
+<li>✅ 保持 Mock 模式确定性</li>
+<li>✅ 保持测试和运行时质量稳定</li>
+<li>🔄 继续减少服务层重复代码</li>
+</ul>
+<h3 id="m2-better-operational-surface">M2: Better Operational Surface（进行中）<a class="headerlink" href="#m2-better-operational-surface" title="Permanent link">¶</a></h3>
+<ul>
+<li>🔄 改进可观测性和诊断</li>
+<li>🔄 增强 Editor 检查流程</li>
+<li>🔄 改进 Android 客户端文档和集成流程</li>
+<li>🔄 保持配置和 profile 行为明确</li>
+</ul>
+<h3 id="m3-planner-and-agent-expansion">M3: Planner and Agent Expansion（未开始）<a class="headerlink" href="#m3-planner-and-agent-expansion" title="Permanent link">¶</a></h3>
+<ul>
+<li>⏳ 更清晰的规划器边界</li>
+<li>⏳ 更丰富的任务/目标抽象</li>
+<li>⏳ 更可控的 VLM 降级策略</li>
+<li>⏳ 更强的执行历史和知识反馈使用</li>
+</ul>
+<hr>
+<h2 id="_14">⚠️ 十二、已知限制<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>真实 OCR / YOLO / VLM</strong> 依赖外部模型、环境或 API Key</li>
+<li><strong>Android 端</strong> 虽然协议链路存在，但仍未整理成完整的面向发布版本的客户端文档与流程</li>
+<li><strong>历史归档文档</strong> 仍保存在 <code>docs/old/</code>，仅供追溯，不作为当前事实来源</li>
+</ol>
+<hr>
+<h2 id="_15">📚 十三、文档索引<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>文档</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../README.md">README.md</a></td>
+<td>项目概览</td>
+</tr>
+<tr>
+<td><a href="../docs/ARCHITECTURE.md">ARCHITECTURE.md</a></td>
+<td>架构说明</td>
+</tr>
+<tr>
+<td><a href="../docs/API.md">API.md</a></td>
+<td>API 文档</td>
+</tr>
+<tr>
+<td><a href="../docs/RUNBOOK.md">RUNBOOK.md</a></td>
+<td>运行手册</td>
+</tr>
+<tr>
+<td><a href="../DEV_GUIDE.md">DEV_GUIDE.md</a></td>
+<td>开发者指南</td>
+</tr>
+<tr>
+<td><a href="../DESIGN.md">DESIGN.md</a></td>
+<td>设计指南</td>
+</tr>
+<tr>
+<td><a href="../docs/PROGRESS.md">PROGRESS.md</a></td>
+<td>当前进度</td>
+</tr>
+<tr>
+<td><a href="../docs/TODO.md">TODO.md</a></td>
+<td>后续待办</td>
+</tr>
+<tr>
+<td><a href="../docs/CHANGELOG.md">CHANGELOG.md</a></td>
+<td>变更日志</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_16">🔑 十四、核心设计原则<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>GameState 是唯一状态源</strong> — 所有模块通过 GameState 交换信息，禁止直接模块间调用</li>
+<li><strong>事件驱动</strong> — 状态变化自动触发事件，事件映射到技能</li>
+<li><strong>Mock 优先</strong> — 开发测试优先使用 Mock 模式，无需真实设备</li>
+<li><strong>安全优先</strong> — 高风险技能禁止自动执行，中风险需确认</li>
+<li><strong>可观测性</strong> — 所有操作有日志、指标、审计记录</li>
+</ol>
+<hr>
+<p><em>最后更新：2026-04-27</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/pppxxx1983" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

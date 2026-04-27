@@ -1,0 +1,2657 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库 - 生活 / 工作 / 项目">
+      
+      
+        <meta name="author" content="pppxxx1983">
+      
+      
+        <link rel="canonical" href="https://pppxxx1983.github.io/MindVault/work/llm/rag-and-finetuning/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../material/brain">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>RAG 与 Fine-tuning 概念说明 - MindVault</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rag-fine-tuning" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="MindVault" class="md-header__button md-logo" aria-label="MindVault" data-md-component="logo">
+      
+  <img src="../../../material/brain" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MindVault
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RAG 与 Fine-tuning 概念说明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber" aria-label="切换到深色模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber" aria-label="切换到浅色模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pppxxx1983/MindVault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    pppxxx1983/MindVault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../首页：index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  None
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../wiki/index.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LLM Wiki
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  生活
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  工作
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MindVault" class="md-nav__button md-logo" aria-label="MindVault" data-md-component="logo">
+      
+  <img src="../../../material/brain" alt="logo">
+
+    </a>
+    MindVault
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pppxxx1983/MindVault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    pppxxx1983/MindVault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../首页：index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Wiki
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLM Wiki
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念知识库
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概念知识库
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/LLM_Wiki.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/LLM_Wiki_理念.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/三层结构.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/核心思想.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/关键特性.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/自动提取.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/自动链接.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/来源追溯.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wiki/concepts/知识复利.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生活
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    生活
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../烹饪美食：life/cooking.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../旅行记录：life/travel.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../健康运动：life/health.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../理财投资：life/finance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工作
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gameruntime/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GameRuntime 引擎
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GameRuntime 引擎
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../引擎架构：work/gameruntime/architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python 技巧：work/gameruntime/python-tips.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM / AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLM / AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../提示工程：work/llm/prompt-engineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RAG 技术：work/llm/rag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../微调经验：work/llm/fine-tuning.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../模型对比：work/llm/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具框架：work/llm/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Prompt 模板：work/llm/prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../教程指南：work/llm/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../学习资源：work/llm/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../论文整理：work/llm/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../腾讯云：work/tencent-cloud.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../开发工具链：work/dev-tools.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../会议笔记：work/meeting-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../开源项目：projects/open-source.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../技术方案：projects/tech-solutions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../学习笔记：projects/learning-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../读书笔记：projects/reading-notes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="rag-fine-tuning">RAG 与 Fine-tuning 概念说明<a class="headerlink" href="#rag-fine-tuning" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>整理自 GitHub 高星项目与官方文档<br>
+最后更新：2026-04-27</p>
+</blockquote>
+<hr>
+<h2 id="rag-retrieval-augmented-generation">📚 一、RAG (Retrieval-Augmented Generation)<a class="headerlink" href="#rag-retrieval-augmented-generation" title="Permanent link">¶</a></h2>
+<h3 id="11-rag">1.1 什么是 RAG？<a class="headerlink" href="#11-rag" title="Permanent link">¶</a></h3>
+<p><strong>RAG（检索增强生成）</strong> 是一种将<strong>外部知识检索</strong>与<strong>大语言模型生成</strong>相结合的技术架构。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                      RAG 工作流程                            │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│                                                             │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  用户问题 ──→ 检索系统 ──→ 相关文档 ──→ LLM ──→ 增强回答    │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│                ↑                           ↑                │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│                │                           │                │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│         向量数据库                    提示词拼接             │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│         (知识库)                  (问题 + 检索内容)          │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│                                                             │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="12">1.2 核心组件<a class="headerlink" href="#12" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+<th>常用工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文档加载器</strong></td>
+<td>读取 PDF、Word、网页等</td>
+<td>LangChain, LlamaIndex</td>
+</tr>
+<tr>
+<td><strong>文本分割器</strong></td>
+<td>将长文档切分为小块</td>
+<td>RecursiveCharacterTextSplitter</td>
+</tr>
+<tr>
+<td><strong>嵌入模型</strong></td>
+<td>文本→向量</td>
+<td>OpenAI Embeddings, BGE, M3E</td>
+</tr>
+<tr>
+<td><strong>向量数据库</strong></td>
+<td>存储和检索向量</td>
+<td>Milvus, Chroma, FAISS, Weaviate</td>
+</tr>
+<tr>
+<td><strong>检索器</strong></td>
+<td>相似度搜索</td>
+<td>余弦相似度、ANN 搜索</td>
+</tr>
+<tr>
+<td><strong>生成模型</strong></td>
+<td>基于检索内容生成回答</td>
+<td>GPT-4, Claude, Qwen, Llama</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13">1.3 工作流程<a class="headerlink" href="#13" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. 知识库构建
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   文档 → 分割 → 向量化 → 存入向量数据库
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2. 查询阶段
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>   用户问题 → 向量化 → 相似度搜索 → 获取 Top-K 相关片段
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>3. 生成阶段
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   问题 + 检索片段 → 拼接提示词 → LLM → 增强回答
+</code></pre></div>
+<h3 id="14">1.4 核心优势<a class="headerlink" href="#14" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>优势</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知识可更新</strong></td>
+<td>无需重新训练，更新向量库即可</td>
+</tr>
+<tr>
+<td><strong>减少幻觉</strong></td>
+<td>基于真实文档生成，降低编造</td>
+</tr>
+<tr>
+<td><strong>可追溯</strong></td>
+<td>可标注引用来源</td>
+</tr>
+<tr>
+<td><strong>成本低</strong></td>
+<td>比全量微调便宜得多</td>
+</tr>
+<tr>
+<td><strong>私有知识</strong></td>
+<td>可安全使用内部文档</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15">1.5 适用场景<a class="headerlink" href="#15" title="Permanent link">¶</a></h3>
+<p>✅ <strong>适合 RAG 的场景</strong>：
+- 企业知识库问答
+- 产品文档查询
+- 法律法规检索
+- 技术手册查询
+- 客服机器人</p>
+<p>❌ <strong>不适合 RAG 的场景</strong>：
+- 需要学习新技能/行为模式
+- 需要改变模型风格或语气
+- 需要学习全新语言或领域术语</p>
+<hr>
+<h2 id="fine-tuning">🔧 二、Fine-tuning (微调)<a class="headerlink" href="#fine-tuning" title="Permanent link">¶</a></h2>
+<h3 id="21-fine-tuning">2.1 什么是 Fine-tuning？<a class="headerlink" href="#21-fine-tuning" title="Permanent link">¶</a></h3>
+<p><strong>微调</strong> 是在预训练大模型的基础上，使用特定领域的数据继续训练，使模型适应该领域的任务和需求。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                    微调工作流程                              │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├─────────────────────────────────────────────────────────────┤
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│                                                             │
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  预训练模型 ──→ 准备数据集 ──→ 微调训练 ──→ 微调后模型      │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  (如 Llama-3)    (问答对)      (LoRA/全量)   (领域专家)     │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│                                                             │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="22">2.2 微调方法<a class="headerlink" href="#22" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>全量微调</strong></td>
+<td>更新所有参数</td>
+<td>效果最好</td>
+<td>成本高、易过拟合</td>
+</tr>
+<tr>
+<td><strong>LoRA</strong></td>
+<td>低秩适配器，只训练少量参数</td>
+<td>高效、省显存</td>
+<td>效果略低于全量</td>
+</tr>
+<tr>
+<td><strong>QLoRA</strong></td>
+<td>LoRA + 4bit 量化</td>
+<td>更省显存</td>
+<td>训练时间略长</td>
+</tr>
+<tr>
+<td><strong>P-Tuning</strong></td>
+<td>只训练提示词向量</td>
+<td>极高效</td>
+<td>效果有限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23">2.3 核心组件<a class="headerlink" href="#23" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+<th>常用工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基础模型</strong></td>
+<td>预训练 LLM</td>
+<td>Llama-3, Qwen, ChatGLM, Baichuan</td>
+</tr>
+<tr>
+<td><strong>训练数据</strong></td>
+<td>领域特定的问答对/指令</td>
+<td>JSONL, Alpaca 格式</td>
+</tr>
+<tr>
+<td><strong>微调框架</strong></td>
+<td>训练流程封装</td>
+<td>LlamaFactory, PEFT, Axolotl</td>
+</tr>
+<tr>
+<td><strong>量化库</strong></td>
+<td>降低显存占用</td>
+<td>bitsandbytes, GPTQ, AWQ</td>
+</tr>
+<tr>
+<td><strong>评估工具</strong></td>
+<td>验证微调效果</td>
+<td>C-Eval, MMLU, 自定义测试集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24">2.4 工作流程<a class="headerlink" href="#24" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. 数据准备
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   收集领域数据 → 清洗 → 格式化为指令微调格式
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2. 模型选择
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   选择基础模型 (Llama-3-8B, Qwen-7B 等)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>3. 微调训练
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   配置参数 (学习率、batch size、LoRA rank) → 开始训练
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>4. 评估测试
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>   在测试集上验证效果 → 调整参数 → 重新训练
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>5. 部署上线
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>   导出模型 → 部署到推理服务 (vLLM, TGI)
+</code></pre></div>
+<h3 id="25">2.5 核心优势<a class="headerlink" href="#25" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>优势</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>领域专业化</strong></td>
+<td>成为特定领域专家</td>
+</tr>
+<tr>
+<td><strong>风格定制</strong></td>
+<td>学习特定写作/对话风格</td>
+</tr>
+<tr>
+<td><strong>新技能学习</strong></td>
+<td>学习预训练时不会的任务</td>
+</tr>
+<tr>
+<td><strong>术语理解</strong></td>
+<td>掌握专业术语和概念</td>
+</tr>
+<tr>
+<td><strong>一次性学习</strong></td>
+<td>训练完成后可重复使用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="26">2.6 适用场景<a class="headerlink" href="#26" title="Permanent link">¶</a></h3>
+<p>✅ <strong>适合微调的场景</strong>：
+- 医疗/法律/金融等专业领域
+- 特定品牌语气和风格
+- 新语言或方言
+- 特殊任务格式（如代码生成、SQL 生成）
+- 需要高度一致性的场景</p>
+<p>❌ <strong>不适合微调的场景</strong>：
+- 知识频繁更新
+- 需要实时数据
+- 数据量太少（&lt;100 条）
+- 预算有限</p>
+<hr>
+<h2 id="rag-vs-fine-tuning">三、RAG vs Fine-tuning 对比<a class="headerlink" href="#rag-vs-fine-tuning" title="Permanent link">¶</a></h2>
+<h3 id="31">3.1 决策矩阵<a class="headerlink" href="#31" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>RAG</th>
+<th>Fine-tuning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知识更新频率</strong></td>
+<td>高频更新 ✅</td>
+<td>低频更新 ❌</td>
+</tr>
+<tr>
+<td><strong>数据量需求</strong></td>
+<td>少量文档即可 ✅</td>
+<td>需要大量数据 ❌</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>低（只需嵌入 + 检索）✅</td>
+<td>高（需要 GPU 训练）❌</td>
+</tr>
+<tr>
+<td><strong>可追溯性</strong></td>
+<td>可标注来源 ✅</td>
+<td>黑盒 ❌</td>
+</tr>
+<tr>
+<td><strong>领域专业化</strong></td>
+<td>一般 ❌</td>
+<td>专业 ✅</td>
+</tr>
+<tr>
+<td><strong>风格定制</strong></td>
+<td>有限 ❌</td>
+<td>灵活 ✅</td>
+</tr>
+<tr>
+<td><strong>幻觉控制</strong></td>
+<td>较好 ✅</td>
+<td>依赖数据质量 ⚠️</td>
+</tr>
+<tr>
+<td><strong>启动速度</strong></td>
+<td>快（几小时）✅</td>
+<td>慢（几天）❌</td>
+</tr>
+<tr>
+<td><strong>维护成本</strong></td>
+<td>低 ✅</td>
+<td>高 ❌</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2 选择建议<a class="headerlink" href="#32" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>问自己这几个问题：
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1. 知识是否频繁更新？
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   是 → RAG
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   否 → 继续
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>2. 需要学习新技能/风格吗？
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   是 → Fine-tuning
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   否 → RAG
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>3. 有足够训练数据吗？（&gt;1000 条高质量样本）
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>   是 → Fine-tuning 可选
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   否 → RAG
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>4. 预算有限吗？
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>   是 → RAG
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>   否 → 继续
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>5. 需要可追溯/可解释吗？
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>   是 → RAG
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>   否 → Fine-tuning 可选
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>最佳方案：RAG + Fine-tuning 结合使用
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>- 用 Fine-tuning 学习领域技能和风格
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>- 用 RAG 提供最新知识
+</code></pre></div>
+<hr>
+<h2 id="github">🚀 四、GitHub 高星项目推荐<a class="headerlink" href="#github" title="Permanent link">¶</a></h2>
+<h3 id="41-rag">4.1 RAG 框架<a class="headerlink" href="#41-rag" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>⭐ Stars</th>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>79,045</td>
+<td><a href="https://github.com/infiniflow/ragflow">infiniflow/ragflow</a></td>
+<td>领先的开源 RAG 引擎，支持多种文档格式</td>
+</tr>
+<tr>
+<td>34,305</td>
+<td><a href="https://github.com/HKUDS/LightRAG">HKUDS/LightRAG</a></td>
+<td>EMNLP2025 论文，简单快速的 RAG</td>
+</tr>
+<tr>
+<td>32,521</td>
+<td><a href="https://github.com/microsoft/graphrag">microsoft/graphrag</a></td>
+<td>微软图结构 RAG 系统</td>
+</tr>
+<tr>
+<td>26,989</td>
+<td><a href="https://github.com/NirDiamant/RAG_Techniques">NirDiamant/RAG_Techniques</a></td>
+<td>RAG 高级技巧合集</td>
+</tr>
+<tr>
+<td>7,777</td>
+<td><a href="https://github.com/SciPhi-AI/R2R">SciPhi-AI/R2R</a></td>
+<td>生产级检索系统</td>
+</tr>
+<tr>
+<td>7,662</td>
+<td><a href="https://github.com/weaviate/Verba">weaviate/Verba</a></td>
+<td>Weaviate 驱动的 RAG 聊天机器人</td>
+</tr>
+<tr>
+<td>4,728</td>
+<td><a href="https://github.com/Marker-Inc-Korea/AutoRAG">Marker-Inc-Korea/AutoRAG</a></td>
+<td>自动 RAG 优化框架</td>
+</tr>
+<tr>
+<td>4,409</td>
+<td><a href="https://github.com/truefoundry/cognita">truefoundry/cognita</a></td>
+<td>模块化开源 RAG 框架</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-fine-tuning">4.2 Fine-tuning 框架<a class="headerlink" href="#42-fine-tuning" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>⭐ Stars</th>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18,304</td>
+<td><a href="https://github.com/meta-llama/llama-cookbook">meta-llama/llama-cookbook</a></td>
+<td>Llama 微调官方指南</td>
+</tr>
+<tr>
+<td>4,894</td>
+<td><a href="https://github.com/SylphAI-Inc/LLM-engineer-handbook">SylphAI-Inc/LLM-engineer-handbook</a></td>
+<td>LLM 工程师资源手册</td>
+</tr>
+<tr>
+<td>2,794</td>
+<td><a href="https://github.com/OpenPipe/OpenPipe">OpenPipe/OpenPipe</a></td>
+<td>将昂贵提示转为便宜微调模型</td>
+</tr>
+<tr>
+<td>2,094</td>
+<td><a href="https://github.com/kubeflow/trainer">kubeflow/trainer</a></td>
+<td>Kubernetes 分布式训练</td>
+</tr>
+<tr>
+<td>1,975</td>
+<td><a href="https://github.com/eosphoros-ai/DB-GPT-Hub">eosphoros-ai/DB-GPT-Hub</a></td>
+<td>数据库领域微调</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-rag-fine-tuning">4.3 统一平台（RAG + Fine-tuning）<a class="headerlink" href="#43-rag-fine-tuning" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>⭐ Stars</th>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34,305</td>
+<td><a href="https://github.com/hiyouga/LlamaFactory">hiyouga/LlamaFactory</a></td>
+<td>统一高效微调 100+LLM/VLM (ACL 2024)</td>
+</tr>
+<tr>
+<td>26,989</td>
+<td><a href="https://github.com/unslothai/unsloth">unslothai/unsloth</a></td>
+<td>本地训练和运行开源模型 Web UI</td>
+</tr>
+<tr>
+<td>17,482</td>
+<td><a href="https://github.com/huggingface/peft">huggingface/peft</a></td>
+<td>参数高效微调 (LoRA/QLoRA)</td>
+</tr>
+<tr>
+<td>7,551</td>
+<td><a href="https://github.com/run-llama/llama_index">run-llama/llama_index</a></td>
+<td>领先的文档 Agent 和 OCR 平台</td>
+</tr>
+<tr>
+<td>6,990</td>
+<td><a href="https://github.com/langchain-ai/langchain">langchain-ai/langchain</a></td>
+<td>Agent 工程平台</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_1">📖 五、学习资源<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h3 id="51-rag">5.1 RAG 学习路径<a class="headerlink" href="#51-rag" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1. 基础概念
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   - 向量嵌入原理
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   - 相似度搜索算法
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   - 提示词工程
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>2. 实践项目
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   - 搭建个人知识库问答
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>   - 企业文档检索系统
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>   - 多轮对话 RAG
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>3. 高级主题
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>   - 混合检索（关键词 + 向量）
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>   - Rerank 重排序
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>   - Agentic RAG
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>   - Graph RAG
+</code></pre></div>
+<h3 id="52-fine-tuning">5.2 Fine-tuning 学习路径<a class="headerlink" href="#52-fine-tuning" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1. 基础概念
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   - Transformer 架构
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   - 微调原理
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   - LoRA/QLoRA 技术
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>2. 实践项目
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   - 指令微调（Alpaca 格式）
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   - 领域适配（医疗/法律）
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   - 风格迁移
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>3. 高级主题
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>   - DPO 直接偏好优化
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>   - RLHF 人类反馈强化学习
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>   - 多任务微调
+</code></pre></div>
+<h3 id="53">5.3 推荐教程<a class="headerlink" href="#53" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>类型</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《RAG 技术详解》</td>
+<td>GitHub</td>
+<td><a href="https://github.com/NirDiamant/RAG_Techniques">NirDiamant/RAG_Techniques</a></td>
+</tr>
+<tr>
+<td>《LlamaFactory 教程》</td>
+<td>GitHub</td>
+<td><a href="https://github.com/hiyouga/LlamaFactory">hiyouga/LlamaFactory</a></td>
+</tr>
+<tr>
+<td>《LLM Engineer's Handbook》</td>
+<td>书籍</td>
+<td><a href="https://github.com/SylphAI-Inc/LLM-engineer-handbook">SylphAI-Inc/LLM-engineer-handbook</a></td>
+</tr>
+<tr>
+<td>《从零开始构建智能体》</td>
+<td>中文教程</td>
+<td><a href="https://github.com/datawhalechina/hello-agents">datawhalechina/hello-agents</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_2">🛠️ 六、快速开始示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h3 id="61-rag-ragflow">6.1 RAG 快速开始（使用 RAGFlow）<a class="headerlink" href="#61-rag-ragflow" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 1. 克隆项目</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/infiniflow/ragflow.git
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>ragflow
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># 2. Docker 启动</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># 3. 访问 Web UI</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># http://localhost:9380</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># 4. 上传文档 → 创建知识库 → 开始问答</span>
+</code></pre></div>
+<h3 id="62-fine-tuning-llamafactory">6.2 Fine-tuning 快速开始（使用 LlamaFactory）<a class="headerlink" href="#62-fine-tuning-llamafactory" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. 安装</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hiyouga/LlamaFactory.git
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span><span class="w"> </span>LlamaFactory
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[torch,metrics]"</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 2. 准备数据（Alpaca 格式）</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="o">[</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="o">{</span><span class="s2">"instruction"</span>:<span class="w"> </span><span class="s2">"什么是 RAG？"</span>,<span class="w"> </span><span class="s2">"input"</span>:<span class="w"> </span><span class="s2">""</span>,<span class="w"> </span><span class="s2">"output"</span>:<span class="w"> </span><span class="s2">"RAG 是检索增强生成..."</span><span class="o">}</span>,
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="o">{</span><span class="s2">"instruction"</span>:<span class="w"> </span><span class="s2">"解释微调"</span>,<span class="w"> </span><span class="s2">"input"</span>:<span class="w"> </span><span class="s2">""</span>,<span class="w"> </span><span class="s2">"output"</span>:<span class="w"> </span><span class="s2">"微调是在预训练模型基础上..."</span><span class="o">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="o">]</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1"># 3. 开始微调（LoRA）</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>llamafactory-cli<span class="w"> </span>train<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span>--stage<span class="w"> </span>sft<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span>--model_name_or_path<span class="w"> </span>meta-llama/Llama-3-8B<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span>--dataset<span class="w"> </span>alpaca_en_demo<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span>--template<span class="w"> </span>llama3<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span>--finetuning_type<span class="w"> </span>lora<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span>--output_dir<span class="w"> </span>output
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="c1"># 4. 测试微调模型</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>llamafactory-cli<span class="w"> </span>chat<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span>--model_name_or_path<span class="w"> </span>meta-llama/Llama-3-8B<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">  </span>--adapter_name_or_path<span class="w"> </span>output<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">  </span>--template<span class="w"> </span>llama3
+</code></pre></div>
+<hr>
+<h2 id="_3">📊 七、成本对比<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="71-rag">7.1 RAG 成本（月）<a class="headerlink" href="#71-rag" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向量数据库（Milvus Cloud）</td>
+<td>$0-50</td>
+</tr>
+<tr>
+<td>嵌入 API（OpenAI）</td>
+<td>$10-100（按量）</td>
+</tr>
+<tr>
+<td>LLM API（GPT-4）</td>
+<td>$50-500（按量）</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>$60-650/月</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-fine-tuning">7.2 Fine-tuning 成本（一次性）<a class="headerlink" href="#72-fine-tuning" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU 租赁（A100, 10 小时）</td>
+<td>$200-500</td>
+</tr>
+<tr>
+<td>数据标注（1000 条）</td>
+<td>$100-500</td>
+</tr>
+<tr>
+<td>存储和部署</td>
+<td>$50-100/月</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>$350-1100（一次性）+ $50-100/月</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_4">✅ 八、总结建议<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>企业知识库</strong></td>
+<td>RAG ✅</td>
+</tr>
+<tr>
+<td><strong>客服机器人</strong></td>
+<td>RAG + Fine-tuning 🔄</td>
+</tr>
+<tr>
+<td><strong>专业领域助手（医疗/法律）</strong></td>
+<td>Fine-tuning + RAG 🔄</td>
+</tr>
+<tr>
+<td><strong>个人学习助手</strong></td>
+<td>RAG ✅</td>
+</tr>
+<tr>
+<td><strong>品牌专属 AI</strong></td>
+<td>Fine-tuning ✅</td>
+</tr>
+<tr>
+<td><strong>快速验证 MVP</strong></td>
+<td>RAG ✅</td>
+</tr>
+<tr>
+<td><strong>长期生产系统</strong></td>
+<td>RAG + Fine-tuning 🔄</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>参考资料：GitHub Topics、官方文档、EMNLP2025 论文</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/pppxxx1983" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
